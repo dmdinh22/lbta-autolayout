@@ -23,15 +23,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // entry pt into app
         view.addSubview(bearImageView)
         
+        setupLayout()
+    }
+
+    private func setupLayout() {
         bearImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-//        imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         bearImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true // anchor to view's topAnchor with 100pts padding
         bearImageView.widthAnchor.constraint(equalToConstant: 200).isActive = true
         bearImageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
     }
-
     
 }
 
