@@ -9,27 +9,29 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    // let's avoid polluting viewDidLoad
+    // {} referred to as closure / anon function
+    let bearImageView: UIImageView = {
+        let imageView = UIImageView(image: #imageLiteral(resourceName: "bear_first"))
+        
+        // this enables autolayout for the image view
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // here's the entry point into our app
-//        view.backgroundColor = .yellow
+        view.addSubview(bearImageView)
         
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "bear_first"))
-        view.addSubview(imageView)
-//        imageView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
-        
-        // this enables autolayout for the image view
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        bearImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 //        imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true // anchor to view's topAnchor with 100pts padding
-        imageView.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        bearImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true // anchor to view's topAnchor with 100pts padding
+        bearImageView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        bearImageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
     }
 
-
+    
 }
 
