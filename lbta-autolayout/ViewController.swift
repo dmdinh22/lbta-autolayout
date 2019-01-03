@@ -39,6 +39,16 @@ class ViewController: UIViewController {
         textView.translatesAutoresizingMaskIntoConstraints = false
         return textView
     }()
+    
+    // make sure correct encapsulation principles are applied to classes
+    private let previousButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Prev", for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        
+        return button
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +57,8 @@ class ViewController: UIViewController {
         view.addSubview(descriptionTextView)
         
         setupLayout()
+        
+        setupBottomControls()
     }
 
     private func setupLayout() {
@@ -70,6 +82,21 @@ class ViewController: UIViewController {
         descriptionTextView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 24).isActive = true
         descriptionTextView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -24).isActive = true
         descriptionTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
+    }
+    
+    fileprivate func setupBottomControls() {
+        view.addSubview(previousButton)
+        previousButton.backgroundColor = .red
+//        previousButton.frame = CGRect(x: 0, y: 0, width: 200, height: 50)
+        
+        // alternative to setting constraints and not having to set .isActive = true
+        NSLayoutConstraint.activate([
+            // using safeAreaLayoutGuide to not be in the phone's safe area - iPhone X+
+            previousButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            previousButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            previousButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            previousButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
     }
     
 }
