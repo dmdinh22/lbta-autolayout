@@ -56,8 +56,20 @@ class ViewController: UIViewController {
         button.setTitle("NEXT", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        let pinkColor = UIColor(red: 232/255, green: 68/255, blue: 133/255, alpha: 1)
+        button.setTitleColor(pinkColor, for: .normal)
         
         return button
+    }()
+    
+    private let pageControl: UIPageControl = {
+        let pageControl = UIPageControl()
+        pageControl.currentPage = 0
+        pageControl.numberOfPages = 4
+        pageControl.currentPageIndicatorTintColor = .red
+        pageControl.pageIndicatorTintColor = .gray
+        
+        return pageControl
     }()
 
     override func viewDidLoad() {
@@ -95,10 +107,7 @@ class ViewController: UIViewController {
     }
     
     fileprivate func setupBottomControls() {
-        let greenView = UIView()
-        greenView.backgroundColor = .green
-    
-        let bottomControlsStackView = UIStackView(arrangedSubviews: [previousButton, greenView, nextButton])
+        let bottomControlsStackView = UIStackView(arrangedSubviews: [previousButton, pageControl, nextButton])
         view.addSubview(bottomControlsStackView)
         
         bottomControlsStackView.translatesAutoresizingMaskIntoConstraints = false
