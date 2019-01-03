@@ -56,8 +56,7 @@ class ViewController: UIViewController {
         button.setTitle("NEXT", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-        let pinkColor = UIColor(red: 232/255, green: 68/255, blue: 133/255, alpha: 1)
-        button.setTitleColor(pinkColor, for: .normal)
+        button.setTitleColor(.customPink, for: .normal)
         
         return button
     }()
@@ -66,8 +65,8 @@ class ViewController: UIViewController {
         let pageControl = UIPageControl()
         pageControl.currentPage = 0
         pageControl.numberOfPages = 4
-        pageControl.currentPageIndicatorTintColor = .red
-        pageControl.pageIndicatorTintColor = .gray
+        pageControl.currentPageIndicatorTintColor = .customPink
+        pageControl.pageIndicatorTintColor = UIColor(red: 249/255, green: 207/255, blue: 224/255, alpha: 1)
         
         return pageControl
     }()
@@ -125,3 +124,6 @@ class ViewController: UIViewController {
     
 }
 
+extension UIColor {
+    static var customPink = UIColor(red: 232/255, green: 68/255, blue: 133/255, alpha: 1)
+}
