@@ -43,9 +43,19 @@ class ViewController: UIViewController {
     // make sure correct encapsulation principles are applied to classes
     private let previousButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Prev", for: .normal)
+        button.setTitle("PREV", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        button.setTitleColor(.gray, for: .normal)
         
+        return button
+    }()
+    
+    private let nextButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("NEXT", for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         
         return button
     }()
@@ -85,17 +95,22 @@ class ViewController: UIViewController {
     }
     
     fileprivate func setupBottomControls() {
-        view.addSubview(previousButton)
-        previousButton.backgroundColor = .red
-//        previousButton.frame = CGRect(x: 0, y: 0, width: 200, height: 50)
+        let greenView = UIView()
+        greenView.backgroundColor = .green
+    
+        let bottomControlsStackView = UIStackView(arrangedSubviews: [previousButton, greenView, nextButton])
+        view.addSubview(bottomControlsStackView)
+        
+        bottomControlsStackView.translatesAutoresizingMaskIntoConstraints = false
+        bottomControlsStackView.distribution = .fillEqually
         
         // alternative to setting constraints and not having to set .isActive = true
         NSLayoutConstraint.activate([
             // using safeAreaLayoutGuide to not be in the phone's safe area - iPhone X+
-            previousButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            previousButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            previousButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            previousButton.heightAnchor.constraint(equalToConstant: 50)
+            bottomControlsStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            bottomControlsStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            bottomControlsStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            bottomControlsStackView.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
     
