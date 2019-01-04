@@ -12,6 +12,8 @@
 		5463F98521DC8C11007DE90F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5463F98321DC8C11007DE90F /* Main.storyboard */; };
 		5463F98721DC8C12007DE90F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5463F98621DC8C12007DE90F /* Assets.xcassets */; };
 		5463F98A21DC8C12007DE90F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5463F98821DC8C12007DE90F /* LaunchScreen.storyboard */; };
+		5463F99221DF499B007DE90F /* SwipingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5463F99121DF499B007DE90F /* SwipingController.swift */; };
+		5463F99421DF51B9007DE90F /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5463F99321DF51B9007DE90F /* PageCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		5463F98621DC8C12007DE90F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5463F98921DC8C12007DE90F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5463F98B21DC8C12007DE90F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5463F99121DF499B007DE90F /* SwipingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingController.swift; sourceTree = "<group>"; };
+		5463F99321DF51B9007DE90F /* PageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 				5463F98621DC8C12007DE90F /* Assets.xcassets */,
 				5463F98821DC8C12007DE90F /* LaunchScreen.storyboard */,
 				5463F98B21DC8C12007DE90F /* Info.plist */,
+				5463F99121DF499B007DE90F /* SwipingController.swift */,
+				5463F99321DF51B9007DE90F /* PageCell.swift */,
 			);
 			path = "lbta-autolayout";
 			sourceTree = "<group>";
@@ -137,6 +143,8 @@
 			files = (
 				5463F98221DC8C11007DE90F /* ViewController.swift in Sources */,
 				5463F98021DC8C11007DE90F /* AppDelegate.swift in Sources */,
+				5463F99421DF51B9007DE90F /* PageCell.swift in Sources */,
+				5463F99221DF499B007DE90F /* SwipingController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
