@@ -1,6 +1,8 @@
 import UIKit
 
 class SwipingController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+    let imageNames = ["bear_first", "heart_second", "leaf_third"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -18,12 +20,15 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // create # of items in collection view
-        return 4
+        return imageNames.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         // create cell for each index
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! PageCell
+        
+        let imageName = imageNames[indexPath.item]
+        cell.bearImageView.image = UIImage(named: imageName)
         
         return cell
     }
