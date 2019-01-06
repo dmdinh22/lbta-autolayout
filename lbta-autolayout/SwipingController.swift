@@ -10,7 +10,6 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
         Page(imageName: "leaf_third", headerText: "VIP members special services")
     ]
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,9 +35,8 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! PageCell // cast cell to be PageCell class type to access props
         
         let page = pages[indexPath.item]
-        cell.bearImageView.image = UIImage(named: page.imageName)
-        cell.descriptionTextView.text = page.headerText
-        
+        cell.page = page
+
         return cell
     }
     
