@@ -10,7 +10,7 @@ class PageCell: UICollectionViewCell {
             
             let attributedText = NSMutableAttributedString(string: unwrappedPage.headerText, attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 18)])
             
-            attributedText.append(NSAttributedString(string: "\n\n\nAre you ready for loads and loads of fun Don't wait any longer! We hope to see you in our stores soon.", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13), NSAttributedString.Key.foregroundColor: UIColor.gray]))
+            attributedText.append(NSAttributedString(string: "\n\n\n\(unwrappedPage.bodyText)", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13), NSAttributedString.Key.foregroundColor: UIColor.gray]))
             
             descriptionTextView.attributedText = attributedText
             descriptionTextView.textAlignment = .center
