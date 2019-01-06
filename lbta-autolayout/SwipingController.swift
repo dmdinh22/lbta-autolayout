@@ -1,7 +1,15 @@
 import UIKit
 
 class SwipingController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-    let imageNames = ["bear_first", "heart_second", "leaf_third"]
+//    let imageNames = ["bear_first", "heart_second", "leaf_third"]
+//    let headerStrings = ["Join us today in our fun and games!", "Subscribe and get coupons on our daily events", "VIP members special services"]
+
+    let pages = [
+        Page(imageName: "bear_first", headerText: "Join us today in our fun and games!"),
+        Page(imageName: "heart_second", headerText: "Subscribe and get coupons on our daily events"),
+        Page(imageName: "leaf_third", headerText: "VIP members special services")
+    ]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,15 +28,16 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // create # of items in collection view
-        return imageNames.count
+        return pages.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         // create cell for each index
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! PageCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! PageCell // cast cell to be PageCell class type to access props
         
-        let imageName = imageNames[indexPath.item]
-        cell.bearImageView.image = UIImage(named: imageName)
+        let page = pages[indexPath.item]
+        cell.bearImageView.image = UIImage(named: page.imageName)
+        cell.descriptionTextView.text = page.headerText
         
         return cell
     }
