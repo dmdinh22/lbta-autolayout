@@ -7,6 +7,9 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
     let pages = [
         Page(imageName: "bear_first", headerText: "Join use today in our fun and games!", bodyText: "Are you ready for loads and loads of fun? Don't wait any longer! We hope to see you in our stores soon."),
         Page(imageName: "heart_second", headerText: "Subscribe and get coupons on our daily events", bodyText: "Get notified of the savings immediately when we announce them on our website. Make sure to also give us any feedback you have."),
+        Page(imageName: "leaf_third", headerText: "VIP members special services", bodyText: ""),
+        Page(imageName: "bear_first", headerText: "Join use today in our fun and games!", bodyText: "Are you ready for loads and loads of fun? Don't wait any longer! We hope to see you in our stores soon."),
+        Page(imageName: "heart_second", headerText: "Subscribe and get coupons on our daily events", bodyText: "Get notified of the savings immediately when we announce them on our website. Make sure to also give us any feedback you have."),
         Page(imageName: "leaf_third", headerText: "VIP members special services", bodyText: "")
     ]
 
@@ -95,6 +98,15 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
             bottomControlsStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             bottomControlsStackView.heightAnchor.constraint(equalToConstant: 50)
             ])
+    }
+
+    override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+
+        // getting content offset so we can determine page #
+        let x = targetContentOffset.pointee.x
+
+        // target content offset dividedby view's frame width calculates page #
+        pageControl.currentPage = Int(x / view.frame.width)
     }
 
     @objc private func handleNextBtnPressed() {
