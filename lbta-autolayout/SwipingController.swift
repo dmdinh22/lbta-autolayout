@@ -16,6 +16,7 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         button.setTitleColor(.gray, for: .normal)
+        button.addTarget(self, action: #selector(handlePrevioustBtnPressed), for: .touchUpInside)
 
         return button
     }()
@@ -26,7 +27,7 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         button.setTitleColor(.customPink, for: .normal)
-        button.addTarget(self, action: #selector(handleNextBtnClicked), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleNextBtnPressed), for: .touchUpInside)
 
         return button
     }()
@@ -96,11 +97,19 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
             ])
     }
 
-    @objc private func handleNextBtnClicked() {
+    @objc private func handleNextBtnPressed() {
         let nextIndex = min(pageControl.currentPage + 1, pages.count - 1)
         let indexPath = IndexPath(item: nextIndex, section: 0)
         pageControl.currentPage = nextIndex
         
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+    }
+
+    @objc private func handlePrevioustBtnPressed() {
+        let nextIndex = max(pageControl.currentPage - 1, 0)
+        let indexPath = IndexPath(item: nextIndex, section: 0)
+        pageControl.currentPage = nextIndex
+
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
 }
