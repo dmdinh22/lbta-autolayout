@@ -26,14 +26,16 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         button.setTitleColor(.customPink, for: .normal)
+        button.addTarget(self, action: #selector(handleNextBtnClicked), for: .touchUpInside)
 
         return button
     }()
 
-    private let pageControl: UIPageControl = {
+    // lazy var to access members of class when needed
+    private lazy var pageControl: UIPageControl = {
         let pageControl = UIPageControl()
         pageControl.currentPage = 0
-        pageControl.numberOfPages = 4
+        pageControl.numberOfPages = pages.count
         pageControl.currentPageIndicatorTintColor = .customPink
         pageControl.pageIndicatorTintColor = UIColor(red: 249/255, green: 207/255, blue: 224/255, alpha: 1)
 
@@ -92,6 +94,14 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
             bottomControlsStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             bottomControlsStackView.heightAnchor.constraint(equalToConstant: 50)
             ])
+    }
+
+    @objc private func handleNextBtnClicked() {
+        let nextIndex = min(pageControl.currentPage + 1, pages.count - 1)
+        let indexPath = IndexPath(item: nextIndex, section: 0)
+        pageControl.currentPage = nextIndex
+        
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
 }
 
