@@ -15,6 +15,8 @@
 		5463F99221DF499B007DE90F /* SwipingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5463F99121DF499B007DE90F /* SwipingController.swift */; };
 		5463F99421DF51B9007DE90F /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5463F99321DF51B9007DE90F /* PageCell.swift */; };
 		5463F99621E1995D007DE90F /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5463F99521E1995D007DE90F /* Page.swift */; };
+		5463F99821E4740B007DE90F /* SwipingController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5463F99721E4740B007DE90F /* SwipingController+extension.swift */; };
+		5463F99A21E474AA007DE90F /* SwipingController+UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5463F99921E474AA007DE90F /* SwipingController+UICollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		5463F99121DF499B007DE90F /* SwipingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingController.swift; sourceTree = "<group>"; };
 		5463F99321DF51B9007DE90F /* PageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
 		5463F99521E1995D007DE90F /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
+		5463F99721E4740B007DE90F /* SwipingController+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwipingController+extension.swift"; sourceTree = "<group>"; };
+		5463F99921E474AA007DE90F /* SwipingController+UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwipingController+UICollectionView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,8 @@
 				5463F99121DF499B007DE90F /* SwipingController.swift */,
 				5463F99321DF51B9007DE90F /* PageCell.swift */,
 				5463F99521E1995D007DE90F /* Page.swift */,
+				5463F99721E4740B007DE90F /* SwipingController+extension.swift */,
+				5463F99921E474AA007DE90F /* SwipingController+UICollectionView.swift */,
 			);
 			path = "lbta-autolayout";
 			sourceTree = "<group>";
@@ -147,8 +153,10 @@
 				5463F98221DC8C11007DE90F /* ViewController.swift in Sources */,
 				5463F98021DC8C11007DE90F /* AppDelegate.swift in Sources */,
 				5463F99421DF51B9007DE90F /* PageCell.swift in Sources */,
+				5463F99A21E474AA007DE90F /* SwipingController+UICollectionView.swift in Sources */,
 				5463F99221DF499B007DE90F /* SwipingController.swift in Sources */,
 				5463F99621E1995D007DE90F /* Page.swift in Sources */,
+				5463F99821E4740B007DE90F /* SwipingController+extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

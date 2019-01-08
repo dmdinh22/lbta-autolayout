@@ -1,25 +1,6 @@
 import UIKit
 
 class SwipingController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-
-    // handle landscape mode
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-
-
-        coordinator.animate(alongsideTransition: { (_) in
-           self.collectionViewLayout.invalidateLayout()
-
-            if self.pageControl.currentPage == 0 {
-                self.collectionView.contentOffset = .zero
-            } else {
-                let indexPath = IndexPath(item: self.pageControl.currentPage, section: 0)
-                self.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-            }
-        }) { (bear_) in
-            
-        }
-    }
-
     let pages = [
         Page(imageName: "bear_first", headerText: "Join use today in our fun and games!", bodyText: "Are you ready for loads and loads of fun? Don't wait any longer! We hope to see you in our stores soon."),
         Page(imageName: "heart_second", headerText: "Subscribe and get coupons on our daily events", bodyText: "Get notified of the savings immediately when we announce them on our website. Make sure to also give us any feedback you have."),
@@ -52,7 +33,7 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
     }()
 
     // lazy var to access members of class when needed
-    private lazy var pageControl: UIPageControl = {
+    public lazy var pageControl: UIPageControl = {
         let pageControl = UIPageControl()
         pageControl.currentPage = 0
         pageControl.numberOfPages = pages.count
@@ -72,31 +53,6 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
         
         // to snap each cell as a page per swipe
         collectionView.isPagingEnabled = true
-    }
-    
-    // set minimum line spacing for each cell to remove default side spacing
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // create # of items in collection view
-        return pages.count
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        // create cell for each index
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! PageCell // cast cell to be PageCell class type to access props
-        
-        let page = pages[indexPath.item]
-        cell.page = page
-
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        // set each collection view cell's size
-        return CGSize(width: view.frame.width, height: view.frame.height)
     }
 
     fileprivate func setupBottomControls() {
@@ -129,7 +85,7 @@ class SwipingController: UICollectionViewController, UICollectionViewDelegateFlo
         let nextIndex = min(pageControl.currentPage + 1, pages.count - 1)
         let indexPath = IndexPath(item: nextIndex, section: 0)
         pageControl.currentPage = nextIndex
-        
+
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
 
