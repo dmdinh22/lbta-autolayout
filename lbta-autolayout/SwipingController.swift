@@ -1,8 +1,24 @@
 import UIKit
 
 class SwipingController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-//    let imageNames = ["bear_first", "heart_second", "leaf_third"]
-//    let headerStrings = ["Join us today in our fun and games!", "Subscribe and get coupons on our daily events", "VIP members special services"]
+
+    // handle landscape mode
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+
+
+        coordinator.animate(alongsideTransition: { (_) in
+           self.collectionViewLayout.invalidateLayout()
+
+            if self.pageControl.currentPage == 0 {
+                self.collectionView.contentOffset = .zero
+            } else {
+                let indexPath = IndexPath(item: self.pageControl.currentPage, section: 0)
+                self.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+            }
+        }) { (bear_) in
+            
+        }
+    }
 
     let pages = [
         Page(imageName: "bear_first", headerText: "Join use today in our fun and games!", bodyText: "Are you ready for loads and loads of fun? Don't wait any longer! We hope to see you in our stores soon."),
